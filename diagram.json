@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -146.65,
+      "left": -97.23,
+      "attrs": { "temperature": "48.6" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -124.03,
+      "left": 330.64,
+      "attrs": { "pins": "i2c", "background": "white" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -352.45, "left": 246.75, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay2", "top": -351.18, "left": 8.91, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay3", "top": -232.98, "left": 249.73, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay4", "top": -232.98, "left": 11.09, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -308.97, "left": 149.35, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": -303.5, "left": 386.88, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -189.66, "left": 153.73, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": -187.47, "left": 398.92, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -113.71,
+      "left": 124.11,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:GND", "uno:GND.1", "black", [ "h-83.01", "v31.26", "h-126.71" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-16.24", "v302.67", "h-158.4" ] ],
+    [ "uno:A4", "lcd1:SDA", "green", [ "v0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v251.82", "h242.23" ] ],
+    [ "dht1:SDA", "uno:8", "green", [ "v20.9", "h245.73" ] ],
+    [ "dht1:GND", "uno:GND.1", "black", [ "v9.42", "h168.93" ] ],
+    [ "relay4:GND", "uno:GND.1", "black", [ "h-15.16", "v180.46", "h119.57" ] ],
+    [ "relay2:GND", "uno:GND.1", "black", [ "h-26.12", "v298.66", "h132.71" ] ],
+    [ "relay1:GND", "uno:GND.1", "black", [ "h-31.9", "v299.93", "h-99.35" ] ],
+    [ "relay3:GND", "uno:GND.1", "black", [ "h-19.56", "v179.36", "h-114.67" ] ],
+    [ "relay3:IN", "uno:2", "green", [ "h0" ] ],
+    [ "relay1:IN", "uno:3", "green", [ "h0" ] ],
+    [ "relay2:IN", "uno:13", "green", [ "h-19.55", "v303.49", "h135.64" ] ],
+    [ "relay4:IN", "uno:12", "green", [ "h-6.41", "v184.19", "h129.82" ] ],
+    [ "relay2:NO", "gnd1:GND", "green", [ "h0" ] ],
+    [ "relay1:NO", "gnd2:GND", "green", [ "h0" ] ],
+    [ "relay4:NO", "gnd3:GND", "green", [ "h0" ] ],
+    [ "relay3:NO", "gnd4:GND", "green", [ "h0" ] ],
+    [ "btn1:2.l", "uno:GND.1", "black", [ "h0" ] ],
+    [ "btn1:1.r", "uno:4", "green", [ "h26.36", "v109.71" ] ]
+  ]
+}
