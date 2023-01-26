@@ -182,7 +182,6 @@ char **parseCommand(char *buffer)
             break;
 
         command_table[index] = word;
-        Serial.println(command_table[index]);
         index++;
         word = strtok(NULL, " \n\t");
         command_table[index] = NULL;
