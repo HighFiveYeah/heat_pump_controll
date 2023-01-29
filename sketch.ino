@@ -13,7 +13,6 @@ float CWU_AUTO_STOP_TEMP;  // higher than CWU_AUTO_START_TEMP
 bool CWU_STATUS;
 bool CO_STATUS;
 bool DIRECTIONAL_VALVE_STATUS; // TRUE - CWU, FALSE - CO
-bool SUMMER_MODE;
 bool IS_ADMIN;
 float LAST_TEAMPERATURE_READ;
 
@@ -54,16 +53,6 @@ void set3DStatus(bool status)
         digitalWrite(2, HIGH);
     else
         digitalWrite(2, LOW);
-}
-
-void setSummerMode(bool status)
-{
-    SUMMER_MODE = status;
-
-    if (status)
-        digitalWrite(3, HIGH);
-    else
-        digitalWrite(3, LOW);
 }
 
 void setAdminStatus(bool status)
@@ -156,7 +145,6 @@ bool calculateStatus(float current_temp)
 void displayCurrentStatus(float current_temp)
 {
     Serial.println("================================");
-    Serial.println("Summer mode: " + String(SUMMER_MODE));
     Serial.println("CWU: " + String(CWU_STATUS));
     Serial.println("CO: " + String(CO_STATUS));
 
